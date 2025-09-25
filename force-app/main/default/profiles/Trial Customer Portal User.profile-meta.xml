@@ -7,6 +7,11 @@
     </externalDataSourceAccesses>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Asset.AgreementNumber__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>FinancialHistoryTransaction__x.agreementNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -111,7 +116,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Asset-Asset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>FinancialHistoryTransaction__x-FinancialHistoryTransaction Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-Person Account Layout</layout>
+        <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <tabVisibilities>
         <tab>FinancialHistoryTransaction__x</tab>

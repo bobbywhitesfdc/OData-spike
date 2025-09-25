@@ -121,7 +121,7 @@
     <enableSearch>false</enableSearch>
     <externalDataSource>MuleSoftOData</externalDataSource>
     <externalName>FinancialHistoryTransactions</externalName>
-    <externalRepository>agreementNumber</externalRepository>
+    <externalRepository>transactionNumber</externalRepository>
     <label>FinancialHistoryTransaction</label>
     <pluralLabel>FinancialHistoryTransactions</pluralLabel>
     <searchLayouts></searchLayouts>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dueDate__c</fullName>
+    <description>dueDate</description>
+    <externalDeveloperName>dueDate</externalDeveloperName>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>DueDate</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

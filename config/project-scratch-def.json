@@ -1,0 +1,20 @@
+{
+  "orgName": "FSC with Salesforce Connect",
+  "country": "US",
+  "edition": "Enterprise",
+  "description": "Financial Services Cloud with Salesforce Connect",
+  "hasSampleData": false,
+  "language": "en_US",
+  "features": [
+    "ContactsToMultipleAccounts",
+    "PersonAccounts",
+    "FinancialServicesUser:5",
+    "PlatformConnect:2",
+    "ServiceCloud"
+  ],
+  "settings": {
+    "accountSettings": {
+      "enableRelateContactToMultipleAccounts": true
+    }
+  }
+}

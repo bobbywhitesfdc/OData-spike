@@ -7,6 +7,7 @@
     <columns>transactionType__c</columns>
     <columns>totalPayment__c</columns>
     <columns>processedDate__c</columns>
+    <columns>bankName__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

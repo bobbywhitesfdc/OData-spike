@@ -3,6 +3,10 @@
     <description>Access Financial History Transactions</description>
     <externalCredentialPrincipalAccesses>
         <enabled>true</enabled>
+        <externalCredentialPrincipal>MMAUTHSERVER-FSCSuperUser</externalCredentialPrincipal>
+    </externalCredentialPrincipalAccesses>
+    <externalCredentialPrincipalAccesses>
+        <enabled>true</enabled>
         <externalCredentialPrincipal>MuleSoft1-Principal1</externalCredentialPrincipal>
     </externalCredentialPrincipalAccesses>
     <fieldPermissions>

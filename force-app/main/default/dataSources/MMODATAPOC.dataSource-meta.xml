@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalDataSource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customConfiguration>{&quot;pagination&quot;:&quot;CLIENT&quot;,&quot;errorMessagingStrategy&quot;:&quot;BASIC&quot;,&quot;searchFunc&quot;:&quot;&quot;,&quot;searchEnabled&quot;:&quot;false&quot;,&quot;timeout&quot;:&quot;120&quot;,&quot;ChangeTrackingEnabled&quot;:&quot;false&quot;,&quot;metadataControlInformation&quot;:&quot;FULL&quot;}</customConfiguration>
+    <isWritable>false</isWritable>
+    <label>MMODATAPOC</label>
+    <namedCredential>MMODataPOC</namedCredential>
+    <principalType>Anonymous</principalType>
+    <protocol>NoAuthentication</protocol>
+    <type>OData401</type>
+</ExternalDataSource>

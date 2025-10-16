@@ -1,0 +1,1458 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Financial History API",
+    "description": "Financial History API brings back the transaction history as well as payment history data on a policy.    <div id=\"demo\" class=\"collapse\"></div>\n    <p>For more information checkout the API design/component page </div>\n    <a href=\"https://massmutual.atlassian.net/wiki/spaces/FAB/pages/1839989523/Financial+History+API\" style=\"text-decoration:none\"> here</a></p>\n    <div id=\"demo\" class=\"collapse\"></div>\n    <p>For API/Streaming issues, enhancements, consulting - that require more analysis, submit a ServiceNow ticket here: </div>\n    <a href=\"https://massmutual.service-now.com/now/nav/ui/classic/params/target/com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1%26sysparm_id%3D49798e72db7211907f7263a40596195f%26sysparm_link_parent%3D4e27675e13d61340690ebc122244b04c%26sysparm_catalog%3De0d08b13c3330100c8b837659bba8fb4%26sysparm_catalog_view%3Dcatalog_default%26sysparm_view%3Dtext_search\" style=\"text-decoration:none\"> Intake Request</a>\n",
+    "contact": {
+      "name": "Enterprise API Team",
+      "email": "DataAPIEngineering@iuo.MassMutual.com"
+    },
+    "license": {
+      "name": "MassMutual Terms of Use",
+      "url": "https://www.massmutual.com/legal/terms-of-use"
+    },
+    "x-vignettify-name": "fabric-financial-history-api"
+  },
+  "externalDocs": {
+    "description": "Financial History API Documentation.",
+    "url": "https://massmutual.atlassian.net/wiki/spaces/FAB/pages/1839989523/Financial+History+API"
+  },
+  "tags": [
+    {
+      "name": "customerAgreement",
+      "description": "Domain"
+    },
+    {
+      "name": "Enterprise API",
+      "description": "Owned and maintained by Enterprise API team."
+    },
+    {
+      "name": "API",
+      "description": "Consumer facing API"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    },
+    {
+      "oauth2ProfilesDev": []
+    },
+    {
+      "oauth2ProfilesQA": []
+    },
+    {
+      "oauth2ProfilesProd": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://apis-dev.apip.nsawsnprd.massmutual.com/rest/agreementsapi/ba/v1/agreements",
+      "description": "Dev Basic Auth URL"
+    },
+    {
+      "url": "https://apis-dev.apip.nsawsnprd.massmutual.com/rest/agreementsapi/v1/agreements",
+      "description": "Dev Okta Client Cred URL"
+    },
+    {
+      "url": "https://apis-qa.apip.nsawsnprd.massmutual.com/rest/agreementsapi/ba/v1/agreements",
+      "description": "QA Basic Auth URL"
+    },
+    {
+      "url": "https://apis-qa.apip.nsawsnprd.massmutual.com/rest/agreementsapi/v1/agreements",
+      "description": "QA Okta Client Cred URL"
+    },
+    {
+      "url": "https://apis.apip.nsawsprd.massmutual.com/rest/agreementsapi/ba/v1/agreements",
+      "description": "PROD Basic Auth URL"
+    },
+    {
+      "url": "https://apis.apip.nsawsprd.massmutual.com/rest/agreementsapi/v1/agreements",
+      "description": "PROD Okta Client Cred URL"
+    },
+    {
+      "url": "/v1/agreements"
+    }
+  ],
+  "paths": {
+    "/{agreementKey}/transactions": {
+      "x-swagger-router-controller": "financialHistoryController",
+      "x-a127-apply": {},
+      "get": {
+        "summary": "Get financial history details for the given agreement key.",
+        "operationId": "getFinancialHistory",
+        "x-apiPath": "/{agreementKey}/transactions",
+        "tags": [
+          "customerAgreement"
+        ],
+        "parameters": [
+          {
+            "name": "agreementKey",
+            "in": "path",
+            "description": "The 4 part agreement key.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "showExtended",
+            "in": "query",
+            "description": "indicates whether screen scraping microservices should be invoked\nfor additional values",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "A role used to determine the transactions returned. Current values\nare CUSTOMER, CSR, blank (defaults to CUSTOMER).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Optional start date filter. Only transactions with a cycle date on\nor after this date will be included in the response.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Optional end date filter. Only transactions with a cycle date on or\nbefore this date will be included in the response.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nbrYrs",
+            "in": "query",
+            "description": "The number of years to limit history to.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "transType": {
+                          "type": "string",
+                          "description": "The API request executed by the consumer."
+                        },
+                        "transGuid": {
+                          "type": "string",
+                          "description": "Unique identifier for this exact transaction."
+                        },
+                        "transExecDateTS": {
+                          "type": "string",
+                          "description": "Date / Time the request was executed."
+                        },
+                        "messages": {
+                          "type": "array",
+                          "description": "List of Errors, Warnings and or informational messages returned by\nthe back end service or related to the processing of the initial\nrequest. Can contain service failures, validation messages...etc.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "msgType": {
+                                "type": "string",
+                                "description": "Type of message. ERROR, WARNING, INFORMATIONAL"
+                              },
+                              "msgCode": {
+                                "type": "string",
+                                "description": "Alphanumeric code associated with the message."
+                              },
+                              "msgDescription": {
+                                "type": "string",
+                                "description": "Description inidicating what the message pertains to."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "agreement": {
+                      "type": "object",
+                      "description": "The agreement with fincancial history transactions.",
+                      "items": {
+                        "allOf": [
+                          {
+                            "allOf": [
+                              {
+                                "properties": {
+                                  "agreementKey": {
+                                    "type": "string",
+                                    "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+                                  }
+                                }
+                              }
+                            ],
+                            "properties": {
+                              "lineOfBusiness": {
+                                "type": "string",
+                                "description": "The highest level designation of the product type for a\nholding.  For example Life, DI, Annuity."
+                              },
+                              "productTypeCode": {
+                                "type": "string",
+                                "description": "NEEDED"
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "NEEDED"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "properties": {
+                        "financialHistoryAvailable": {
+                          "type": "boolean",
+                          "description": "Identifies whether any financial history transactions are\navailable based on the business rules."
+                        },
+                        "financialHistory": {
+                          "type": "array",
+                          "description": "An array of financial history transactions.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "status": {
+                                "type": "string",
+                                "description": "Status of the transaction. Valid values are Pending, Processing, and\nPaid."
+                              },
+                              "transactionNumber": {
+                                "type": "string",
+                                "description": "Confirmation number provided by receiving system. Applies to\nClearTran payments only."
+                              },
+                              "transactionCode": {
+                                "type": "string",
+                                "description": "The Teradata transaction code."
+                              },
+                              "transactionDesc": {
+                                "type": "string",
+                                "description": "A description of the transaction."
+                              },
+                              "transactionType": {
+                                "type": "string",
+                                "description": "NEEDED"
+                              },
+                              "submissionDate": {
+                                "type": "string",
+                                "description": "The date the transaction was submitted by the customer."
+                              },
+                              "effectiveDate": {
+                                "type": "string",
+                                "description": "The effective date of the transaction."
+                              },
+                              "processedDate": {
+                                "type": "string",
+                                "description": "The date the transaction was processed by the admin system."
+                              },
+                              "dueDate": {
+                                "type": "string",
+                                "description": "The due date of the transaction. Applies to payment transactions."
+                              },
+                              "frequency": {
+                                "type": "string",
+                                "description": "The frequency of the transaction. Applies to payment transactions."
+                              },
+                              "interestDue": {
+                                "type": "string",
+                                "description": "The interest portion of the amount that was due."
+                              },
+                              "premiumDue": {
+                                "type": "string",
+                                "description": "The premium portion of the amount that was due."
+                              },
+                              "totalPayment": {
+                                "type": "string",
+                                "description": "The total amount due on the transaction."
+                              },
+                              "paymentByCash": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by cash."
+                              },
+                              "paymentByDivd": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by a dividend."
+                              },
+                              "paymentByLoan": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by a loan."
+                              },
+                              "paymentByABR": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by the Additional Benefits Rider."
+                              },
+                              "paidBy": {
+                                "type": "string",
+                                "description": "Identifies how the payment was made. Valid valies are Online and\nAuto."
+                              },
+                              "bankName": {
+                                "type": "string",
+                                "description": "The name of the bank used to make the payment."
+                              },
+                              "bankAcctNumber": {
+                                "type": "string",
+                                "description": "The last 4 digits of the bank account number used to make the\npayment."
+                              },
+                              "moneySourceCode": {
+                                "type": "string",
+                                "description": "A code that states a detailed form of payment. Ex. PREMWVR, GRPPYR."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "API error message when an exception occurrs in the processing that\nis not handled by anything else."
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "API error name when an exception occurrs in the processing that is\nnot handled by anything else."
+                        },
+                        "httpCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP Status code (ex. 200, 400, 500...)."
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "API error message when an exception occurrs in the processing that\nis not handled by anything else."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "API error name when an exception occurrs in the processing that is\nnot handled by anything else."
+                    },
+                    "httpCode": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "HTTP Status code (ex. 200, 400, 500...)."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "financialHistoryController"
+      }
+    },
+    "/paymenthistory": {
+      "x-swagger-router-controller": "paymentHistoryController",
+      "x-a127-apply": {},
+      "get": {
+        "summary": "Get payment history details filtered by agreementKey, paymentStatus,\nadmin, amount etc., for given date interval.",
+        "operationId": "getPaymentHistory",
+        "x-apiPath": "/paymenthistory",
+        "tags": [
+          "customerAgreement"
+        ],
+        "parameters": [
+          {
+            "name": "agreementKey",
+            "in": "query",
+            "description": "The 4 part agreement key.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toEffectiveDate",
+            "in": "query",
+            "description": "To effective date.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromEffectiveDate",
+            "in": "query",
+            "description": "fromEffectiveDate.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "admin",
+            "in": "query",
+            "description": "Pipe delimited admin system codes e.g. OPM|PE1 This will return\npayments with admin OPM and PE1.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentStatus",
+            "in": "query",
+            "description": "Payment Status code.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentConfirmation",
+            "in": "query",
+            "description": "Payment confirmation number.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentMethod",
+            "in": "query",
+            "description": "payment method.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "payment amount.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "user Id / creator id.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "email.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromDueDate",
+            "in": "query",
+            "description": "from Due Date.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toDueDate",
+            "in": "query",
+            "description": "to Due Date.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentType",
+            "in": "query",
+            "description": "payment Type.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routingNumber",
+            "in": "query",
+            "description": "routing number",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountNumber",
+            "in": "query",
+            "description": "account number.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "creditCardLastFour",
+            "in": "query",
+            "description": "credit card last four digits",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "processingCode",
+            "in": "query",
+            "description": "Pipe delimited processing codes e.g. 01|02",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "billAvailable",
+            "in": "query",
+            "description": "bill available - Y or N indicator will search payments with no bill",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "properties": {
+                        "transType": {
+                          "type": "string",
+                          "description": "The API request executed by the consumer."
+                        },
+                        "transGuid": {
+                          "type": "string",
+                          "description": "Unique identifier for this exact transaction."
+                        },
+                        "transExecDateTS": {
+                          "type": "string",
+                          "description": "Date / Time the request was executed."
+                        },
+                        "messages": {
+                          "type": "array",
+                          "description": "List of Errors, Warnings and or informational messages returned by\nthe back end service or related to the processing of the initial\nrequest. Can contain service failures, validation messages...etc.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "msgType": {
+                                "type": "string",
+                                "description": "Type of message. ERROR, WARNING, INFORMATIONAL"
+                              },
+                              "msgCode": {
+                                "type": "string",
+                                "description": "Alphanumeric code associated with the message."
+                              },
+                              "msgDescription": {
+                                "type": "string",
+                                "description": "Description inidicating what the message pertains to."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "payments": {
+                      "type": "object",
+                      "description": "The payments with history filtered by payment status, admin,\nagreement key etc.",
+                      "items": {
+                        "allOf": [
+                          {
+                            "allOf": [
+                              {
+                                "properties": {
+                                  "accountNumber": {
+                                    "type": "string",
+                                    "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+                                  }
+                                }
+                              }
+                            ],
+                            "properties": {
+                              "agreementKey": {
+                                "type": "string",
+                                "description": "4 part key"
+                              },
+                              "routingNumber": {
+                                "type": "string",
+                                "description": "routing number"
+                              },
+                              "paymentStatus": {
+                                "type": "string",
+                                "description": "payment status code"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "properties": {
+                        "agreementKey": {
+                          "type": "string",
+                          "description": "agreement key"
+                        },
+                        "paymentStatus": {
+                          "type": "string",
+                          "description": "Payment Status code.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "status": {
+                                "type": "string",
+                                "description": "Status of the transaction. Valid values are Pending, Processing, and\nPaid."
+                              },
+                              "transactionNumber": {
+                                "type": "string",
+                                "description": "Confirmation number provided by receiving system. Applies to\nClearTran payments only."
+                              },
+                              "transactionCode": {
+                                "type": "string",
+                                "description": "The Teradata transaction code."
+                              },
+                              "transactionDesc": {
+                                "type": "string",
+                                "description": "A description of the transaction."
+                              },
+                              "transactionType": {
+                                "type": "string",
+                                "description": "NEEDED"
+                              },
+                              "submissionDate": {
+                                "type": "string",
+                                "description": "The date the transaction was submitted by the customer."
+                              },
+                              "effectiveDate": {
+                                "type": "string",
+                                "description": "The effective date of the transaction."
+                              },
+                              "processedDate": {
+                                "type": "string",
+                                "description": "The date the transaction was processed by the admin system."
+                              },
+                              "dueDate": {
+                                "type": "string",
+                                "description": "The due date of the transaction. Applies to payment transactions."
+                              },
+                              "frequency": {
+                                "type": "string",
+                                "description": "The frequency of the transaction. Applies to payment transactions."
+                              },
+                              "interestDue": {
+                                "type": "string",
+                                "description": "The interest portion of the amount that was due."
+                              },
+                              "premiumDue": {
+                                "type": "string",
+                                "description": "The premium portion of the amount that was due."
+                              },
+                              "totalPayment": {
+                                "type": "string",
+                                "description": "The total amount due on the transaction."
+                              },
+                              "paymentByCash": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by cash."
+                              },
+                              "paymentByDivd": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by a dividend."
+                              },
+                              "paymentByLoan": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by a loan."
+                              },
+                              "paymentByABR": {
+                                "type": "string",
+                                "description": "Portion of the transaction paid by the Additional Benefits Rider."
+                              },
+                              "paidBy": {
+                                "type": "string",
+                                "description": "Identifies how the payment was made. Valid valies are Online and\nAuto."
+                              },
+                              "bankName": {
+                                "type": "string",
+                                "description": "The name of the bank used to make the payment."
+                              },
+                              "bankAcctNumber": {
+                                "type": "string",
+                                "description": "The last 4 digits of the bank account number used to make the\npayment."
+                              },
+                              "moneySourceCode": {
+                                "type": "string",
+                                "description": "A code that states a detailed form of payment. Ex. PREMWVR, GRPPYR."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "API error message when an exception occurrs in the processing that\nis not handled by anything else."
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "API error name when an exception occurrs in the processing that is\nnot handled by anything else."
+                        },
+                        "httpCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP Status code (ex. 200, 400, 500...)."
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "API error message when an exception occurrs in the processing that\nis not handled by anything else."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "API error name when an exception occurrs in the processing that is\nnot handled by anything else."
+                    },
+                    "httpCode": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "HTTP Status code (ex. 200, 400, 500...)."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "paymentHistoryController"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "financialHistoryResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "transType": {
+                "type": "string",
+                "description": "The API request executed by the consumer."
+              },
+              "transGuid": {
+                "type": "string",
+                "description": "Unique identifier for this exact transaction."
+              },
+              "transExecDateTS": {
+                "type": "string",
+                "description": "Date / Time the request was executed."
+              },
+              "messages": {
+                "type": "array",
+                "description": "List of Errors, Warnings and or informational messages returned by\nthe back end service or related to the processing of the initial\nrequest. Can contain service failures, validation messages...etc.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "msgType": {
+                      "type": "string",
+                      "description": "Type of message. ERROR, WARNING, INFORMATIONAL"
+                    },
+                    "msgCode": {
+                      "type": "string",
+                      "description": "Alphanumeric code associated with the message."
+                    },
+                    "msgDescription": {
+                      "type": "string",
+                      "description": "Description inidicating what the message pertains to."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "agreement": {
+            "type": "object",
+            "description": "The agreement with fincancial history transactions.",
+            "items": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "agreementKey": {
+                          "type": "string",
+                          "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "lineOfBusiness": {
+                      "type": "string",
+                      "description": "The highest level designation of the product type for a\nholding.  For example Life, DI, Annuity."
+                    },
+                    "productTypeCode": {
+                      "type": "string",
+                      "description": "NEEDED"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "NEEDED"
+                    }
+                  }
+                }
+              ]
+            },
+            "properties": {
+              "financialHistoryAvailable": {
+                "type": "boolean",
+                "description": "Identifies whether any financial history transactions are\navailable based on the business rules."
+              },
+              "financialHistory": {
+                "type": "array",
+                "description": "An array of financial history transactions.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Status of the transaction. Valid values are Pending, Processing, and\nPaid."
+                    },
+                    "transactionNumber": {
+                      "type": "string",
+                      "description": "Confirmation number provided by receiving system. Applies to\nClearTran payments only."
+                    },
+                    "transactionCode": {
+                      "type": "string",
+                      "description": "The Teradata transaction code."
+                    },
+                    "transactionDesc": {
+                      "type": "string",
+                      "description": "A description of the transaction."
+                    },
+                    "transactionType": {
+                      "type": "string",
+                      "description": "NEEDED"
+                    },
+                    "submissionDate": {
+                      "type": "string",
+                      "description": "The date the transaction was submitted by the customer."
+                    },
+                    "effectiveDate": {
+                      "type": "string",
+                      "description": "The effective date of the transaction."
+                    },
+                    "processedDate": {
+                      "type": "string",
+                      "description": "The date the transaction was processed by the admin system."
+                    },
+                    "dueDate": {
+                      "type": "string",
+                      "description": "The due date of the transaction. Applies to payment transactions."
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "description": "The frequency of the transaction. Applies to payment transactions."
+                    },
+                    "interestDue": {
+                      "type": "string",
+                      "description": "The interest portion of the amount that was due."
+                    },
+                    "premiumDue": {
+                      "type": "string",
+                      "description": "The premium portion of the amount that was due."
+                    },
+                    "totalPayment": {
+                      "type": "string",
+                      "description": "The total amount due on the transaction."
+                    },
+                    "paymentByCash": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by cash."
+                    },
+                    "paymentByDivd": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by a dividend."
+                    },
+                    "paymentByLoan": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by a loan."
+                    },
+                    "paymentByABR": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by the Additional Benefits Rider."
+                    },
+                    "paidBy": {
+                      "type": "string",
+                      "description": "Identifies how the payment was made. Valid valies are Online and\nAuto."
+                    },
+                    "bankName": {
+                      "type": "string",
+                      "description": "The name of the bank used to make the payment."
+                    },
+                    "bankAcctNumber": {
+                      "type": "string",
+                      "description": "The last 4 digits of the bank account number used to make the\npayment."
+                    },
+                    "moneySourceCode": {
+                      "type": "string",
+                      "description": "A code that states a detailed form of payment. Ex. PREMWVR, GRPPYR."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "paymentHistoryResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "transType": {
+                "type": "string",
+                "description": "The API request executed by the consumer."
+              },
+              "transGuid": {
+                "type": "string",
+                "description": "Unique identifier for this exact transaction."
+              },
+              "transExecDateTS": {
+                "type": "string",
+                "description": "Date / Time the request was executed."
+              },
+              "messages": {
+                "type": "array",
+                "description": "List of Errors, Warnings and or informational messages returned by\nthe back end service or related to the processing of the initial\nrequest. Can contain service failures, validation messages...etc.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "msgType": {
+                      "type": "string",
+                      "description": "Type of message. ERROR, WARNING, INFORMATIONAL"
+                    },
+                    "msgCode": {
+                      "type": "string",
+                      "description": "Alphanumeric code associated with the message."
+                    },
+                    "msgDescription": {
+                      "type": "string",
+                      "description": "Description inidicating what the message pertains to."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "payments": {
+            "type": "object",
+            "description": "The payments with history filtered by payment status, admin,\nagreement key etc.",
+            "items": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "accountNumber": {
+                          "type": "string",
+                          "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "agreementKey": {
+                      "type": "string",
+                      "description": "4 part key"
+                    },
+                    "routingNumber": {
+                      "type": "string",
+                      "description": "routing number"
+                    },
+                    "paymentStatus": {
+                      "type": "string",
+                      "description": "payment status code"
+                    }
+                  }
+                }
+              ]
+            },
+            "properties": {
+              "agreementKey": {
+                "type": "string",
+                "description": "agreement key"
+              },
+              "paymentStatus": {
+                "type": "string",
+                "description": "Payment Status code.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Status of the transaction. Valid values are Pending, Processing, and\nPaid."
+                    },
+                    "transactionNumber": {
+                      "type": "string",
+                      "description": "Confirmation number provided by receiving system. Applies to\nClearTran payments only."
+                    },
+                    "transactionCode": {
+                      "type": "string",
+                      "description": "The Teradata transaction code."
+                    },
+                    "transactionDesc": {
+                      "type": "string",
+                      "description": "A description of the transaction."
+                    },
+                    "transactionType": {
+                      "type": "string",
+                      "description": "NEEDED"
+                    },
+                    "submissionDate": {
+                      "type": "string",
+                      "description": "The date the transaction was submitted by the customer."
+                    },
+                    "effectiveDate": {
+                      "type": "string",
+                      "description": "The effective date of the transaction."
+                    },
+                    "processedDate": {
+                      "type": "string",
+                      "description": "The date the transaction was processed by the admin system."
+                    },
+                    "dueDate": {
+                      "type": "string",
+                      "description": "The due date of the transaction. Applies to payment transactions."
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "description": "The frequency of the transaction. Applies to payment transactions."
+                    },
+                    "interestDue": {
+                      "type": "string",
+                      "description": "The interest portion of the amount that was due."
+                    },
+                    "premiumDue": {
+                      "type": "string",
+                      "description": "The premium portion of the amount that was due."
+                    },
+                    "totalPayment": {
+                      "type": "string",
+                      "description": "The total amount due on the transaction."
+                    },
+                    "paymentByCash": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by cash."
+                    },
+                    "paymentByDivd": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by a dividend."
+                    },
+                    "paymentByLoan": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by a loan."
+                    },
+                    "paymentByABR": {
+                      "type": "string",
+                      "description": "Portion of the transaction paid by the Additional Benefits Rider."
+                    },
+                    "paidBy": {
+                      "type": "string",
+                      "description": "Identifies how the payment was made. Valid valies are Online and\nAuto."
+                    },
+                    "bankName": {
+                      "type": "string",
+                      "description": "The name of the bank used to make the payment."
+                    },
+                    "bankAcctNumber": {
+                      "type": "string",
+                      "description": "The last 4 digits of the bank account number used to make the\npayment."
+                    },
+                    "moneySourceCode": {
+                      "type": "string",
+                      "description": "A code that states a detailed form of payment. Ex. PREMWVR, GRPPYR."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "baseResponse": {
+        "properties": {
+          "transType": {
+            "type": "string",
+            "description": "The API request executed by the consumer."
+          },
+          "transGuid": {
+            "type": "string",
+            "description": "Unique identifier for this exact transaction."
+          },
+          "transExecDateTS": {
+            "type": "string",
+            "description": "Date / Time the request was executed."
+          },
+          "messages": {
+            "type": "array",
+            "description": "List of Errors, Warnings and or informational messages returned by\nthe back end service or related to the processing of the initial\nrequest. Can contain service failures, validation messages...etc.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "msgType": {
+                  "type": "string",
+                  "description": "Type of message. ERROR, WARNING, INFORMATIONAL"
+                },
+                "msgCode": {
+                  "type": "string",
+                  "description": "Alphanumeric code associated with the message."
+                },
+                "msgDescription": {
+                  "type": "string",
+                  "description": "Description inidicating what the message pertains to."
+                }
+              }
+            }
+          }
+        }
+      },
+      "baseResponseAgreement": {
+        "allOf": [
+          {
+            "properties": {
+              "agreementKey": {
+                "type": "string",
+                "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+              }
+            }
+          }
+        ],
+        "properties": {
+          "lineOfBusiness": {
+            "type": "string",
+            "description": "The highest level designation of the product type for a\nholding.  For example Life, DI, Annuity."
+          },
+          "productTypeCode": {
+            "type": "string",
+            "description": "NEEDED"
+          },
+          "status": {
+            "type": "string",
+            "description": "NEEDED"
+          }
+        }
+      },
+      "baseResponsePayment": {
+        "allOf": [
+          {
+            "properties": {
+              "accountNumber": {
+                "type": "string",
+                "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+              }
+            }
+          }
+        ],
+        "properties": {
+          "agreementKey": {
+            "type": "string",
+            "description": "4 part key"
+          },
+          "routingNumber": {
+            "type": "string",
+            "description": "routing number"
+          },
+          "paymentStatus": {
+            "type": "string",
+            "description": "payment status code"
+          }
+        }
+      },
+      "basePayment": {
+        "properties": {
+          "accountNumber": {
+            "type": "string",
+            "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+          }
+        }
+      },
+      "baseAgreement": {
+        "properties": {
+          "agreementKey": {
+            "type": "string",
+            "description": "A 4-part holding identification used to uniquely specify an MM\nholding, consisting of Holding ID Prefix, Holding ID Primary,\nHolding ID Suffix and Admin System."
+          }
+        }
+      },
+      "financialHistoryItem": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the transaction. Valid values are Pending, Processing, and\nPaid."
+          },
+          "transactionNumber": {
+            "type": "string",
+            "description": "Confirmation number provided by receiving system. Applies to\nClearTran payments only."
+          },
+          "transactionCode": {
+            "type": "string",
+            "description": "The Teradata transaction code."
+          },
+          "transactionDesc": {
+            "type": "string",
+            "description": "A description of the transaction."
+          },
+          "transactionType": {
+            "type": "string",
+            "description": "NEEDED"
+          },
+          "submissionDate": {
+            "type": "string",
+            "description": "The date the transaction was submitted by the customer."
+          },
+          "effectiveDate": {
+            "type": "string",
+            "description": "The effective date of the transaction."
+          },
+          "processedDate": {
+            "type": "string",
+            "description": "The date the transaction was processed by the admin system."
+          },
+          "dueDate": {
+            "type": "string",
+            "description": "The due date of the transaction. Applies to payment transactions."
+          },
+          "frequency": {
+            "type": "string",
+            "description": "The frequency of the transaction. Applies to payment transactions."
+          },
+          "interestDue": {
+            "type": "string",
+            "description": "The interest portion of the amount that was due."
+          },
+          "premiumDue": {
+            "type": "string",
+            "description": "The premium portion of the amount that was due."
+          },
+          "totalPayment": {
+            "type": "string",
+            "description": "The total amount due on the transaction."
+          },
+          "paymentByCash": {
+            "type": "string",
+            "description": "Portion of the transaction paid by cash."
+          },
+          "paymentByDivd": {
+            "type": "string",
+            "description": "Portion of the transaction paid by a dividend."
+          },
+          "paymentByLoan": {
+            "type": "string",
+            "description": "Portion of the transaction paid by a loan."
+          },
+          "paymentByABR": {
+            "type": "string",
+            "description": "Portion of the transaction paid by the Additional Benefits Rider."
+          },
+          "paidBy": {
+            "type": "string",
+            "description": "Identifies how the payment was made. Valid valies are Online and\nAuto."
+          },
+          "bankName": {
+            "type": "string",
+            "description": "The name of the bank used to make the payment."
+          },
+          "bankAcctNumber": {
+            "type": "string",
+            "description": "The last 4 digits of the bank account number used to make the\npayment."
+          },
+          "moneySourceCode": {
+            "type": "string",
+            "description": "A code that states a detailed form of payment. Ex. PREMWVR, GRPPYR."
+          }
+        }
+      },
+      "badRequestResponse": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "API error message when an exception occurrs in the processing that\nis not handled by anything else."
+              },
+              "name": {
+                "type": "string",
+                "description": "API error name when an exception occurrs in the processing that is\nnot handled by anything else."
+              },
+              "httpCode": {
+                "type": "number",
+                "format": "integer",
+                "description": "HTTP Status code (ex. 200, 400, 500...)."
+              }
+            }
+          }
+        ]
+      },
+      "errorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "API error message when an exception occurrs in the processing that\nis not handled by anything else."
+          },
+          "name": {
+            "type": "string",
+            "description": "API error name when an exception occurrs in the processing that is\nnot handled by anything else."
+          },
+          "httpCode": {
+            "type": "number",
+            "format": "integer",
+            "description": "HTTP Status code (ex. 200, 400, 500...)."
+          }
+        }
+      },
+      "message": {
+        "type": "object",
+        "properties": {
+          "msgType": {
+            "type": "string",
+            "description": "Type of message. ERROR, WARNING, INFORMATIONAL"
+          },
+          "msgCode": {
+            "type": "string",
+            "description": "Alphanumeric code associated with the message."
+          },
+          "msgDescription": {
+            "type": "string",
+            "description": "Description inidicating what the message pertains to."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Kong Basic Auth Credentials"
+      },
+      "oauth2ProfilesDev": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://massmutual.oktapreview.com/oauth2/aus16n64lagHJW2RA0h8/v1/token",
+            "scopes": {
+              "finhistoryapi_ro": "Read write customer accounts"
+            }
+          }
+        }
+      },
+      "oauth2ProfilesQA": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://massmutual.oktapreview.com/oauth2/aus16n64lagHJW2RA0h8/v1/token",
+            "scopes": {
+              "finhistoryapi_ro": "Read write customer accounts"
+            }
+          }
+        }
+      },
+      "oauth2ProfilesProd": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://massmutual.okta.com/oauth2/aus16n64lagHJW2RA0h8/v1/token",
+            "scopes": {
+              "finhistoryapi_ro": "Read write customer accounts"
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-headmatter": {
+    "readable_by": "*"
+  }
+}

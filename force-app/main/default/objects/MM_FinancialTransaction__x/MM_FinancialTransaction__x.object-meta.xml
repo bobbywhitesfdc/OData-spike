@@ -114,14 +114,14 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>InDevelopment</deploymentStatus>
-    <description>FinancialHistoryTransactions</description>
+    <description>FinancialTransactions</description>
     <enableFeeds>false</enableFeeds>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
     <enableSearch>false</enableSearch>
-    <externalDataSource>MuleSoftOData</externalDataSource>
-    <externalName>FinancialHistoryTransaction</externalName>
-    <label>FinancialHistoryTransaction2</label>
-    <pluralLabel>FinancialHistoryTransactions</pluralLabel>
+    <externalDataSource>MMODATAPOC</externalDataSource>
+    <externalName>FinancialTransaction</externalName>
+    <label>MM_FinancialTransaction</label>
+    <pluralLabel>FinancialTransactions</pluralLabel>
     <searchLayouts></searchLayouts>
 </CustomObject>

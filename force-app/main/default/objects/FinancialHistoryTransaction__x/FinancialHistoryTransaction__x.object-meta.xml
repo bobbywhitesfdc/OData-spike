@@ -113,15 +113,15 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
+    <deploymentStatus>InDevelopment</deploymentStatus>
     <description>FinancialHistoryTransactions</description>
     <enableFeeds>false</enableFeeds>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
     <enableSearch>false</enableSearch>
     <externalDataSource>MuleSoftOData</externalDataSource>
-    <externalName>FinancialHistoryTransactions</externalName>
-    <externalRepository>transactionNumber</externalRepository>
+    <externalName>FinancialHistoryTransaction</externalName>
+    <externalRepository>TransactionNumber</externalRepository>
     <label>FinancialHistoryTransaction</label>
     <pluralLabel>FinancialHistoryTransactions</pluralLabel>
     <searchLayouts></searchLayouts>

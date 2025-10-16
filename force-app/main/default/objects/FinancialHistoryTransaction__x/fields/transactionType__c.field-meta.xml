@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>transactionType__c</fullName>
-    <description>transactionType</description>
+    <fullName>TransactionType__c</fullName>
     <externalDeveloperName>transactionType</externalDeveloperName>
     <externalId>false</externalId>
     <isFilteringDisabled>false</isFilteringDisabled>

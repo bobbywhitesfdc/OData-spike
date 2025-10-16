@@ -113,7 +113,7 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>InDevelopment</deploymentStatus>
+    <deploymentStatus>Deployed</deploymentStatus>
     <description>FinancialHistoryTransactions</description>
     <enableFeeds>false</enableFeeds>
     <enableLicensing>false</enableLicensing>

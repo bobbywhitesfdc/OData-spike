@@ -11,6 +11,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>AgreementNumber__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>BankAccNumber__c</field>
             </layoutItems>
             <layoutItems>
@@ -28,10 +32,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Frequency__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Id__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -100,6 +100,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>TransactionDesc__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>TransactionNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

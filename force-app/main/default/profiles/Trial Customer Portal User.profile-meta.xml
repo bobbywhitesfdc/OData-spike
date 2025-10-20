@@ -14,11 +14,6 @@
         <externalDataSource>MuleSoftOData</externalDataSource>
     </externalDataSourceAccesses>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Agreement__x.Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Asset.AccountId</field>
         <readable>true</readable>
@@ -160,353 +155,247 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.AgreementNumber__c</field>
+        <field>FinancialHistoryTransaction__x.AgreementNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.BankAcctNumber__c</field>
+        <field>FinancialHistoryTransaction__x.BankAcctNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.BankName__c</field>
+        <field>FinancialHistoryTransaction__x.BankName__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.DueDate__c</field>
+        <field>FinancialHistoryTransaction__x.DueDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.EffectiveDate__c</field>
+        <field>FinancialHistoryTransaction__x.EffectiveDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.Frequency__c</field>
+        <field>FinancialHistoryTransaction__x.Frequency__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.InterestDue__c</field>
+        <field>FinancialHistoryTransaction__x.InterestDue__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.MoneySourceCode__c</field>
+        <field>FinancialHistoryTransaction__x.MoneySourceCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.PaidBy__c</field>
+        <field>FinancialHistoryTransaction__x.PaidBy__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.PaymentByABR__c</field>
+        <field>FinancialHistoryTransaction__x.PaymentByABR__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.PaymentByCash__c</field>
+        <field>FinancialHistoryTransaction__x.PaymentByCash__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.PaymentByDivd__c</field>
+        <field>FinancialHistoryTransaction__x.PaymentByDivd__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.PaymentByLoan__c</field>
+        <field>FinancialHistoryTransaction__x.PaymentByLoan__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.PremiumDue__c</field>
+        <field>FinancialHistoryTransaction__x.PremiumDue__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.ProcessedDate__c</field>
+        <field>FinancialHistoryTransaction__x.ProcessedDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.SubmissionDate__c</field>
+        <field>FinancialHistoryTransaction__x.SubmissionDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.TotalPayment__c</field>
+        <field>FinancialHistoryTransaction__x.TotalPayment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.TransactionCode__c</field>
+        <field>FinancialHistoryTransaction__x.TransactionCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.TransactionDescription__c</field>
+        <field>FinancialHistoryTransaction__x.TransactionDescription__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.TransactionNumber__c</field>
+        <field>FinancialHistoryTransaction__x.TransactionNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction2__x.TransactionType__c</field>
+        <field>FinancialHistoryTransaction__x.TransactionType__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.agreementNumber__c</field>
+        <field>MM2FinancialTransaction__x.AdminTransactionDesc__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.bankAcctNumber__c</field>
+        <field>MM2FinancialTransaction__x.AgreementNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.bankName__c</field>
+        <field>MM2FinancialTransaction__x.BankAccNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.dueDate__c</field>
+        <field>MM2FinancialTransaction__x.BankName__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.effectiveDate__c</field>
+        <field>MM2FinancialTransaction__x.DueDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.frequency__c</field>
+        <field>MM2FinancialTransaction__x.EffectiveDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.interestDue__c</field>
+        <field>MM2FinancialTransaction__x.Frequency__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.moneySourceCode__c</field>
+        <field>MM2FinancialTransaction__x.InterestDue__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.paidBy__c</field>
+        <field>MM2FinancialTransaction__x.MoneySourceCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.paymentByABR__c</field>
+        <field>MM2FinancialTransaction__x.PaidBy__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.paymentByCash__c</field>
+        <field>MM2FinancialTransaction__x.PaymentByABR__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.paymentByDivd__c</field>
+        <field>MM2FinancialTransaction__x.PaymentByCash__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.paymentByLoan__c</field>
+        <field>MM2FinancialTransaction__x.PaymentByDivd__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.premiumDue__c</field>
+        <field>MM2FinancialTransaction__x.PaymentByLoan__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.processedDate__c</field>
+        <field>MM2FinancialTransaction__x.PaymentTypeCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.submissionDate__c</field>
+        <field>MM2FinancialTransaction__x.PaymentTypeDesc__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.totalPayment__c</field>
+        <field>MM2FinancialTransaction__x.PremiumDue__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.transactionCode__c</field>
+        <field>MM2FinancialTransaction__x.ProcessedDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.transactionDescription__c</field>
+        <field>MM2FinancialTransaction__x.ReversalInd__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.transactionNumber__c</field>
+        <field>MM2FinancialTransaction__x.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FinancialHistoryTransaction__x.transactionType__c</field>
+        <field>MM2FinancialTransaction__x.SubmissionDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>MM_FinancialTransaction__x.AdminTransactionDesc__c</field>
+        <field>MM2FinancialTransaction__x.TotalPayment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>MM_FinancialTransaction__x.BankAccNumber__c</field>
+        <field>MM2FinancialTransaction__x.TransactionCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>MM_FinancialTransaction__x.BankName__c</field>
+        <field>MM2FinancialTransaction__x.TransactionDesc__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>MM_FinancialTransaction__x.DueDate__c</field>
+        <field>MM2FinancialTransaction__x.TransactionNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>MM_FinancialTransaction__x.EffectiveDate__c</field>
+        <field>MM2FinancialTransaction__x.TransactionType__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.Frequency__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.InterestDue__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.MoneySourceCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaidBy__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaymentByABR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaymentByCash__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaymentByDivd__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaymentByLoan__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaymentTypeCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PaymentTypeDesc__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.PremiumDue__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.ProcessedDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.ReversalInd__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.SubmissionDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.TotalPayment__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.TransactionCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.TransactionDesc__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MM_FinancialTransaction__x.TransactionType__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <layoutAssignments>
-        <layout>Agreement__x-Agreement Layout</layout>
-    </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FinancialHistoryTransaction2__x-FinancialHistoryTransaction Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>FinancialHistoryTransaction__x-FinancialHistoryTransaction Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>MM_FinancialTransaction__x-MM_FinancialTransaction Layout</layout>
+        <layout>MM2FinancialTransaction__x-MM2FinancialTransaction Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>
@@ -522,10 +411,6 @@
         <viewAllFields>false</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <tabVisibilities>
-        <tab>FinancialHistoryTransaction__x</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>Hidden</visibility>

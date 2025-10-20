@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -116,6 +115,16 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>TransactionNumber__c</fields>
+        <fields>TransactionType__c</fields>
+        <fields>BankName__c</fields>
+        <fields>BankAccNumber__c</fields>
+        <fields>DueDate__c</fields>
+        <fields>ProcessedDate__c</fields>
+        <fields>TotalPayment__c</fields>
+        <relatedList>MM2FinancialTransaction__x.AgreementNumber__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>TransactionNumber__c</fields>
         <fields>TotalPayment__c</fields>

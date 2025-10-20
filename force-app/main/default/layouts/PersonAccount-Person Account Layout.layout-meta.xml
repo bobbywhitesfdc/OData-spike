@@ -143,7 +143,7 @@
     </quickActionList>
     <relatedLists>
         <fields>ASSET.NAME</fields>
-        <fields>ASSET.SERIAL_NUMBER</fields>
+        <fields>ASSET.AGREEMENTNUMBER__C</fields>
         <fields>ASSET.INSTALL_DATE</fields>
         <fields>ASSET.QUANTITY</fields>
         <fields>CONTACT.NAME</fields>

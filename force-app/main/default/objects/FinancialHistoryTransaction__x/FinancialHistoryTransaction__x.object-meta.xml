@@ -100,11 +100,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>FinancialHistoryTransaction_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -120,8 +123,8 @@
     <enableReports>false</enableReports>
     <enableSearch>false</enableSearch>
     <externalDataSource>MuleSoftOData</externalDataSource>
-    <externalName>FinancialHistoryTransactions</externalName>
-    <externalRepository>transactionNumber</externalRepository>
+    <externalName>FinancialHistoryTransaction</externalName>
+    <externalRepository>TransactionNumber</externalRepository>
     <label>FinancialHistoryTransaction</label>
     <pluralLabel>FinancialHistoryTransactions</pluralLabel>
     <searchLayouts></searchLayouts>

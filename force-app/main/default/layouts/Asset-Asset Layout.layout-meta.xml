@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -117,14 +116,23 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>transactionNumber__c</fields>
-        <fields>transactionType__c</fields>
-        <fields>bankAcctNumber__c</fields>
-        <fields>processedDate__c</fields>
-        <fields>totalPayment__c</fields>
-        <relatedList>FinancialHistoryTransaction__x.agreementNumber__c</relatedList>
-        <sortField>transactionNumber__c</sortField>
-        <sortOrder>Asc</sortOrder>
+        <fields>TransactionNumber__c</fields>
+        <fields>TransactionType__c</fields>
+        <fields>BankName__c</fields>
+        <fields>BankAccNumber__c</fields>
+        <fields>DueDate__c</fields>
+        <fields>ProcessedDate__c</fields>
+        <fields>TotalPayment__c</fields>
+        <relatedList>MM2FinancialTransaction__x.AgreementNumber__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TransactionNumber__c</fields>
+        <fields>TotalPayment__c</fields>
+        <fields>TransactionType__c</fields>
+        <fields>TransactionCode__c</fields>
+        <fields>ProcessedDate__c</fields>
+        <fields>TransactionDescription__c</fields>
+        <relatedList>FinancialHistoryTransaction__x.AgreementNumber__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
